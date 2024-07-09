@@ -1,5 +1,6 @@
+import "../styles/global.css";
 import {ReactNode} from "react";
-import Navigation from "../components/navigation.tsx";
+import Navigation from "@/components/common/navigation.tsx";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {

@@ -1,27 +1,18 @@
-import {MovieType} from "../../types/Movie";
-import Link from "next/link";
+import styles from '/styles/home.module.css';
+import Movie from "@/components/movie/movie";
+import {getMovies} from "@/service/movieService";
+import {IMovie} from "@/types/movie";
 
 export const metadata = {
     title: 'Home',
 }
 
-async function getMovies() {
-    // await new Promise((resolve => setTimeout(resolve, 1000)));
-    const response = await fetch(process.env.NEXT_PUBLIC_API_URL)
-    return await response.json();
-}
 export default async function Home() {
-    const movies: MovieType[] = await getMovies();
+    const movies: IMovie[] = await getMovies();
     return (
-        <div>
-            Home! <br/>
+        <div className={styles.container}>
             {movies.map(movie => (
-                <li key={movie.id}>
-                    <Link href={`/movies/${movie.id}`}>
-                        {movie.title}
-                    </Link>
-                </li>
-
+                <Movie key={movie.id} id={movie.id} title={movie.title} poster_path={movie.poster_path} />
             ))}
         </div>
     )
