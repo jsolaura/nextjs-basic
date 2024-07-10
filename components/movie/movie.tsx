@@ -1,6 +1,7 @@
 "use client";
 import styles from '@/styles/movie.module.css';
 import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 interface IMovieProps {
     id: number | string;
@@ -14,7 +15,7 @@ export default function Movie({ id, poster_path, title }: IMovieProps) {
     return (
         <div className={styles.movie} onClick={goToDetail}>
             <img src={poster_path} alt={title} />
-            <p>{title}</p>
+            <Link prefetch href={`/movies/${id}`}>{title}</Link>
         </div>
     );
  };

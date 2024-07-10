@@ -2,6 +2,13 @@ import "../styles/global.css";
 import {ReactNode} from "react";
 import Navigation from "@/components/common/navigation.tsx";
 import {Metadata} from "next";
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-poppins',
+})
 
 export const metadata: Metadata = {
     title: {
@@ -18,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={poppins.className}>
         <Navigation />
         {children}
       </body>

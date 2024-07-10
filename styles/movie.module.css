@@ -21,6 +21,22 @@
     opacity: 1;
 }
 
-.movie p {
+.movie p, .movie a {
     text-align: center;
+}
+
+.categoriesContainer {
+    max-width: 50%;
+    border-radius: 40px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: #2d2d2d;
+    color: #fff;
+}
+a.active {
+    color: salmon;
 }
