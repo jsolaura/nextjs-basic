@@ -9,6 +9,7 @@ export const metadata = {
 
 export default async function Home() {
     const movies: IMovie[] = await getMovies();
+    
     return (
         <div className={styles.container}>
             {movies.map(movie => (
